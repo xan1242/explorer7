@@ -7,8 +7,20 @@ extern "C" void * _ReturnAddress(void);
 
 extern HINSTANCE g_hInstance;
 
-void dbgvprintf(LPCWSTR format, void* _argp);
-void dbgprintf(LPCWSTR format, ...);
+void _dbgvprintf(LPCWSTR format, void* _argp);
+void _dbgprintf(LPCWSTR format, ...);
+
+#ifdef _DEBUG
+#define dbgvprintf(f, p) (_dbgvprintf(f, p))
+//#define dbgvprintfA(f, p) (_dbgvprintfA(f, p))
+#define dbgprintf(f, ...) (_dbgprintf(f, __VA_ARGS__))
+//#define dbgprintfA(f, ...) (_dbgprintfA(f, __VA_ARGS__))
+#else
+#define dbgvprintf(f, p)
+//#define dbgvprintfA(f, p)
+#define dbgprintf(f, ...)
+//#define dbgprintfA(f, ...)
+#endif
 
 BOOL WINAPI ChangeImportedAddress_FARPROC( HMODULE hModule, LPSTR modulename, FARPROC origfunc, FARPROC newfunc );
 __declspec(noinline) BOOL WINAPI ChangeImportedAddress_ORDINAL( HMODULE hModule, LPSTR modulename, ULONGLONG origOrdinal, FARPROC newfunc );

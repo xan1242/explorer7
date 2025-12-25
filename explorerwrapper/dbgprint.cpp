@@ -1,6 +1,6 @@
 #include "dbgprint.h"
 
-void dbgvprintf(LPCWSTR format, void* _argp)
+void _dbgvprintf(LPCWSTR format, void* _argp)
 {
 	WCHAR msg[1024];
 	va_list argp = (va_list) _argp;
@@ -9,7 +9,7 @@ void dbgvprintf(LPCWSTR format, void* _argp)
 	OutputDebugStringW(msg);
 }
 
-void dbgvprintfA(LPCSTR format, void* _argp)
+void _dbgvprintfA(LPCSTR format, void* _argp)
 {
     CHAR msg[1024];
     va_list argp = (va_list)_argp;
@@ -18,32 +18,32 @@ void dbgvprintfA(LPCSTR format, void* _argp)
     OutputDebugStringA(msg);
 }
 
-void dbgprintf(LPCWSTR format, ...)
+void _dbgprintf(LPCWSTR format, ...)
 {
     //format = wcscat(const_cast<wchar_t*>(format),L"\n");
 	va_list argp;
 	va_start(argp, format);
-	dbgvprintf(format, argp);
+	_dbgvprintf(format, argp);
 	va_end(argp);
 }
 
-void dbgprintfA(LPCSTR format, ...)
+void _dbgprintfA(LPCSTR format, ...)
 {
     //format = wcscat(const_cast<wchar_t*>(format),L"\n");
     va_list argp;
     va_start(argp, format);
-    dbgvprintfA(format, argp);
+    _dbgvprintfA(format, argp);
     va_end(argp);
 }
 
-char* concat(const char* s1, const char* s2)
-{
-    char* result = (char*)malloc(strlen(s1) + strlen(s2) + 1); // +1 for the null-terminator
-    // in real code you would check for errors in malloc here
-    strcpy(result, s1);
-    strcat(result, s2);
-    return result;
-}
+//char* concat(const char* s1, const char* s2)
+//{
+//    char* result = (char*)malloc(strlen(s1) + strlen(s2) + 1); // +1 for the null-terminator
+//    // in real code you would check for errors in malloc here
+//    strcpy(result, s1);
+//    strcat(result, s2);
+//    return result;
+//}
 
 BOOL WINAPI ChangeImportedAddress_FARPROC( HMODULE hModule, LPSTR modulename, FARPROC origfunc, FARPROC newfunc )
 {
