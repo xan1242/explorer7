@@ -18,3 +18,4 @@
 #include <bcrypt.h>
 #include <propvarutil.h>
 #include <strsafe.h>
+#include "Hooking.h"

@@ -200,7 +200,7 @@
     <ClInclude Include="AugmentedShellFolder.h" />
     <ClInclude Include="AuthUI.h" />
     <ClInclude Include="AutoPlay.h" />
-    <ClInclude Include="ChangeImportedAddress.h" />
+    <ClInclude Include="Hooking.h" />
     <ClInclude Include="MinhookImports.h" />
     <ClInclude Include="PatternImports.h" />
     <ClInclude Include="RegTreeOptions.h" />
@@ -238,7 +238,7 @@
     <ClCompile Include="AppResolverNotify.cpp" />
     <ClCompile Include="AuthUI.cpp" />
     <ClCompile Include="AutoPlay.cpp" />
-    <ClCompile Include="ChangeImportedAddress.cpp" />
+    <ClCompile Include="Hooking.cpp" />
     <ClCompile Include="OptionConfig.cpp" />
     <ClCompile Include="PatternImports.cpp" />
     <ClCompile Include="RegTreeOptions.cpp" />

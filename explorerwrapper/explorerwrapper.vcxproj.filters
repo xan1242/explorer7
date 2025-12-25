@@ -126,7 +126,7 @@
     <ClInclude Include="MinhookImports.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="ChangeImportedAddress.h">
+    <ClInclude Include="Hooking.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -215,7 +215,7 @@
     <ClCompile Include="PatternImports.cpp">
       <Filter>Source code files</Filter>
     </ClCompile>
-    <ClCompile Include="ChangeImportedAddress.cpp">
+    <ClCompile Include="Hooking.cpp">
       <Filter>Source code files</Filter>
     </ClCompile>
   </ItemGroup>
