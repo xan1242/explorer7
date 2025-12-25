@@ -6,7 +6,7 @@ Changes made:
 - Disabled debug prints on Release builds
 - Reorganized project structure to be less jank -- this includes submoduling MinHook, configuring it as a project dependency properly, adjusting the project configuration appropriately, etc.
 - Reconfigured and optimized project settings -- enabled the /MP flag for multithreaded compilation
-- Removed the Window Blinds 11 blacklisting to improve security and preformance
+- Removed the Window Blinds 11 blacklisting to improve security and performance
 
 These changes resulted in about 20KB of reduction in size. 
 
