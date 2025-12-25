@@ -524,8 +524,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 		g_hInstance = hModule;
 		if (GetModuleHandle(L"DisplaySwitch.exe"))
 		{
-			dbgprintf(L"loaded into displayswitch %p %s!", GetCurrentProcessId(), GetCommandLine());
 			HookImmersive();
+			dbgprintf(L"loaded into displayswitch %p %s!", GetCurrentProcessId(), GetCommandLine());
 		}
 		else
 		{
