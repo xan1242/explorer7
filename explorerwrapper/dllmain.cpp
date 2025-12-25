@@ -407,9 +407,9 @@ void PatchShunimpl()
 void ExitExplorerSilently()
 {
 	// we do these blocks of code like this, so that the 0xc0000142 error doesn't appear
-	LPDWORD exitCode;
-	GetExitCodeProcess(L"explorer.exe", exitCode); // compiler warning is wrong here - the variable is supplied the exit code by this function
-	ExitProcess((UINT)exitCode); // exit explorer
+	//LPDWORD exitCode;
+	//GetExitCodeProcess(L"explorer.exe", exitCode); // compiler warning is wrong here - the variable is supplied the exit code by this function
+	//ExitProcess((UINT)exitCode); // exit explorer
 }
 
 // Initialize the inactive theme engine
@@ -485,10 +485,10 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	LPVOID lpReserved)
 {
 	// Ittr: We initialise values for closing program if incompatible software is present
-	WCHAR programPath[MAX_PATH] = L"\\Stardock\\WindowBlinds 11\\unins000.exe";
-	WCHAR blacklistPath[MAX_PATH];
-	ExpandEnvironmentStringsW(L"%ProgramFiles%", (LPWSTR)blacklistPath, sizeof(blacklistPath));
-	lstrcat(blacklistPath, programPath);
+	//WCHAR programPath[MAX_PATH] = L"\\Stardock\\WindowBlinds 11\\unins000.exe";
+	//WCHAR blacklistPath[MAX_PATH];
+	//ExpandEnvironmentStringsW(L"%ProgramFiles%", (LPWSTR)blacklistPath, sizeof(blacklistPath));
+	//lstrcat(blacklistPath, programPath);
 
 	switch (ul_reason_for_call)
 	{
@@ -496,8 +496,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	{
 		PatchShunimpl();
 
-		if (GetFileAttributesW((LPCWSTR)blacklistPath) != INVALID_FILE_ATTRIBUTES) // Windowblinds blockage part 1 - create user-facing error
-			CrashError(); // The user-facing crash message - we do these blocks of code like this, so that the 0xc0000142 error doesn't appear
+		//if (GetFileAttributesW((LPCWSTR)blacklistPath) != INVALID_FILE_ATTRIBUTES) // Windowblinds blockage part 1 - create user-facing error
+		//	CrashError(); // The user-facing crash message - we do these blocks of code like this, so that the 0xc0000142 error doesn't appear
 
 		/*if (g_osVersion.BuildNumber() >= 26100)
 		{
@@ -542,8 +542,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 			g_alttabhooked = TRUE;
 		}
 
-		if (GetFileAttributes((LPCWSTR)blacklistPath) != INVALID_FILE_ATTRIBUTES) // Windowblinds blockage part 2 - actually stops the program from running
-			ExitExplorerSilently(); //byebye WB users
+		//if (GetFileAttributes((LPCWSTR)blacklistPath) != INVALID_FILE_ATTRIBUTES) // Windowblinds blockage part 2 - actually stops the program from running
+		//	ExitExplorerSilently(); //byebye WB users
 
 	}
 	break;
