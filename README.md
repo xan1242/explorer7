@@ -1,3 +1,22 @@
+# FORK NOTE
+
+This fork was made out of curiosity more than anything. Nothing much has been done except for a few optimizations.
+
+Changes made:
+- Disabled debug prints on Release builds
+- Reorganized project structure to be less jank -- this includes submoduling MinHook, configuring it as a project dependency properly, adjusting the project configuration appropriately, etc.
+- Reconfigured and optimized project settings -- enabled the /MP flag for multithreaded compilation
+
+These changes resulted in about 19KB of reduction in size. 
+
+Not to mention, building the project is now way simpler. All you need to do now is simply clone it with the `--recursive` or `--recurse-submodules` option and build it.
+
+This project is very janky and could use better handled code styling and general organization (and less reinventions of wheels).
+
+The release tab will include a binary that came out of the compilation process. Simply replace the `wrp64.dll` in the original release to use.
+
+# ORIGINAL README
+
 <p align=center>
   <img src="https://github.com/user-attachments/assets/77a7d7b1-3022-43ab-9c2a-9a09a923be39">
 </p>
