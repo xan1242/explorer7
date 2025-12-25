@@ -1,0 +1,3 @@
+[submodule "explorerwrapper/external/minhook"]
+	path = explorerwrapper/external/minhook
+	url = https://github.com/TsudaKageyu/minhook
